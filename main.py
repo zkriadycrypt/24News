@@ -1,10 +1,12 @@
 # 24News: one-image summary of 18 November 2026 world news.
-# Deterministic by design — the program only copies the bundled image.
+# Deterministic by design — writes the bundled image bytes, every run.
 """24News entry for make.fun news-image-20261118.
 
-Copies the bundled front-page image (assets/entry.png) to /output/entry.png.
+Writes the bundled front-page image to /output/entry.png. The image is
+stored in the repo as base64 text (assets/entry.png.b64); if a binary
+assets/entry.png is also present it is copied directly instead.
 Deterministic: no network, no randomness, no timestamps — the output bytes
-are an exact copy of the bundled image every run.
+are the same every run.
 """
 
 import base64
